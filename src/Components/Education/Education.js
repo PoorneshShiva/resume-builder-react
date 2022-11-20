@@ -57,64 +57,71 @@ const Education = ({ color, temp }) => {
 		},
 	};
 
-	const templates = {
-		1: (
-			<div
-				className="education-container"
-				style={styles[temp]["education-container"]}>
-				<p
-					className="title"
-					style={styles[temp]["title"]}>
-					Education
-				</p>
-				<div
-					className="education"
-					style={styles[temp]["education"]}>
+	const templates = (temp) => {
+		switch (temp) {
+			case "1":
+				return (
 					<div
-						className="degree"
-						style={styles[temp]["degree"]}>
-						<div style={{ paddingRight: "40px" }}>
-							<p
-								className="degree-name"
-								style={styles[temp]["degree-name"]}>
-								Bachelor of Computer Applications
-							</p>
+						className="education-container"
+						style={styles[temp]["education-container"]}>
+						<p
+							className="title"
+							style={styles[temp]["title"]}>
+							Education
+						</p>
+						<div
+							className="education"
+							style={styles[temp]["education"]}>
+							<div
+								className="degree"
+								style={styles[temp]["degree"]}>
+								<div style={{ paddingRight: "40px" }}>
+									<p
+										className="degree-name"
+										style={styles[temp]["degree-name"]}>
+										Bachelor of Computer Applications
+									</p>
 
-							<span
-								className="university-name"
-								style={styles[temp]["university-name"]}>
-								National college Jayanagar, Bangalore
-							</span>
+									<span
+										className="university-name"
+										style={styles[temp]["university-name"]}>
+										National college Jayanagar, Bangalore
+									</span>
+								</div>
+								<span
+									className="degree-duration"
+									style={styles[temp]["degree-duration"]}>
+									Jul 2018-Mar 2022
+								</span>
+							</div>
 						</div>
-						<span
-							className="degree-duration"
-							style={styles[temp]["degree-duration"]}>
-							Jul 2018-Mar 2022
-						</span>
+						<div
+							className="education-subjects"
+							style={styles[temp]["education-subjects"]}>
+							{}
+							<ul
+								className="subject-list"
+								style={styles[temp]["subject-list"]}>
+								{subjectList.map((each) => {
+									return (
+										<li
+											className="subject"
+											style={styles[temp]["subject"]}>
+											{each}
+										</li>
+									);
+								})}
+							</ul>
+						</div>
 					</div>
-				</div>
-				<div
-					className="education-subjects"
-					style={styles[temp]["education-subjects"]}>
-					{}
-					<ul
-						className="subject-list"
-						style={styles[temp]["subject-list"]}>
-						{subjectList.map((each) => {
-							return (
-								<li
-									className="subject"
-									style={styles[temp]["subject"]}>
-									{each}
-								</li>
-							);
-						})}
-					</ul>
-				</div>
-			</div>
-		),
+				);
+			case "2":
+				return <div> Hello</div>;
+			default:
+				return <div>Default</div>;
+		}
 	};
-	return templates[temp];
+	return templates(temp);
 };
 
 export default Education;

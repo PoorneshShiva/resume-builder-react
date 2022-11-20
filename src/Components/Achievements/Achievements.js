@@ -15,29 +15,36 @@ const Achievements = ({ color = "#299dfb", temp }) => {
 		},
 	};
 
-	const templates = {
-		1: (
-			<div
-				className="achievements-container"
-				style={styles[temp]["achievements-container"]}>
-				<p
-					className="title"
-					style={styles[temp]["title"]}>
-					Achievements
-				</p>
-				<div
-					className="achievements-body"
-					style={styles[temp]["achievements-body"]}>
-					An Enthusiastic Computer Science graduate with great time management
-					good coordination with teammates, innovative- thinking for
-					problem-solving Willing to learn every piece of detail. He Focuses on
-					the domino effect to accomplish a goal.
-				</div>
-			</div>
-		),
+	const templates = (temp) => {
+		switch (temp) {
+			case "1":
+				return (
+					<div
+						className="achievements-container"
+						style={styles[temp]["achievements-container"]}>
+						<p
+							className="title"
+							style={styles[temp]["title"]}>
+							Achievements
+						</p>
+						<div
+							className="achievements-body"
+							style={styles[temp]["achievements-body"]}>
+							An Enthusiastic Computer Science graduate with great time
+							management good coordination with teammates, innovative- thinking
+							for problem-solving Willing to learn every piece of detail. He
+							Focuses on the domino effect to accomplish a goal.
+						</div>
+					</div>
+				);
+			case "2":
+				return <div>Achievements Case 2</div>;
+			default:
+				return <div>Default</div>;
+		}
 	};
 
-	return templates[temp];
+	return templates(temp);
 };
 
 export default Achievements;

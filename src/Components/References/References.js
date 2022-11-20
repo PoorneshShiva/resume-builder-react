@@ -26,58 +26,65 @@ const References = ({ color, temp }) => {
 			},
 		},
 	};
-	const templates = {
-		1: (
-			<div
-				className="references-container"
-				style={styles[1]["references-container"]}>
-				<p
-					className="title"
-					style={styles[1]["title"]}>
-					References
-				</p>
-				<div className="references">
-					<div className="reference">
+	const templates = (temp) => {
+		switch (temp) {
+			case "1":
+				return (
+					<div
+						className="references-container"
+						style={styles[1]["references-container"]}>
 						<p
-							className="reference-name"
-							style={{ marginBottom: 0 }}>
-							Prof. Shalini
+							className="title"
+							style={styles[1]["title"]}>
+							References
 						</p>
-						<div
-							className="organization-details"
-							style={styles[temp]["organization-details"]}>
-							<p
-								className="organization"
-								style={{ margin: "0 5px 0 0" }}>
-								National College Jayanagar
-							</p>
-							<p
-								className="organization-location"
-								style={{ margin: "0 10px 0 0" }}>
-								Bangalore
-							</p>
-						</div>
+						<div className="references">
+							<div className="reference">
+								<p
+									className="reference-name"
+									style={{ marginBottom: 0 }}>
+									Prof. Shalini
+								</p>
+								<div
+									className="organization-details"
+									style={styles[temp]["organization-details"]}>
+									<p
+										className="organization"
+										style={{ margin: "0 5px 0 0" }}>
+										National College Jayanagar
+									</p>
+									<p
+										className="organization-location"
+										style={{ margin: "0 10px 0 0" }}>
+										Bangalore
+									</p>
+								</div>
 
-						<div
-							className="reference-contact"
-							style={styles[1]["reference-contact"]}>
-							<p
-								className="phone-number"
-								style={{ margin: "0 10px 0 0" }}>
-								+91 1082340120,
-							</p>
-							<p
-								className="email"
-								style={{ margin: "0 10px 0 0" }}>
-								me@gmail.com
-							</p>
+								<div
+									className="reference-contact"
+									style={styles[1]["reference-contact"]}>
+									<p
+										className="phone-number"
+										style={{ margin: "0 10px 0 0" }}>
+										+91 1082340120,
+									</p>
+									<p
+										className="email"
+										style={{ margin: "0 10px 0 0" }}>
+										me@gmail.com
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		),
+				);
+			case "2":
+				return <h1>References Case 2</h1>;
+			default:
+				return <h1>Default</h1>;
+		}
 	};
-	return templates[temp];
+	return templates(temp);
 };
 
 export default References;

@@ -27,32 +27,39 @@ const Qualities = ({ color = "#299dfb", temp, last }) => {
 			},
 		},
 	};
-	const templates = {
-		1: (
-			<div
-				className="qualities-container"
-				style={styles[temp]["qualities-container"]}>
-				<p
-					className="title"
-					style={styles[temp]["title"]}>
-					Qualities
-				</p>
-				<div
-					className="qualities"
-					style={styles[temp]["qualities"]}>
-					{qualitiesList.map((hobby) => (
+	const templates = (temp) => {
+		switch (temp) {
+			case "1":
+				return (
+					<div
+						className="qualities-container"
+						style={styles[temp]["qualities-container"]}>
 						<p
-							className="hobby"
-							style={styles[temp]["hobby"]}>
-							<BsArrowRight color={color} />
-							&nbsp; {hobby}
+							className="title"
+							style={styles[temp]["title"]}>
+							Qualities
 						</p>
-					))}
-				</div>
-			</div>
-		),
+						<div
+							className="qualities"
+							style={styles[temp]["qualities"]}>
+							{qualitiesList.map((hobby) => (
+								<p
+									className="hobby"
+									style={styles[temp]["hobby"]}>
+									<BsArrowRight color={color} />
+									&nbsp; {hobby}
+								</p>
+							))}
+						</div>
+					</div>
+				);
+			case "2":
+				return <div>Qualities case 2</div>;
+			default:
+				return <div>default</div>;
+		}
 	};
-	return templates[temp];
+	return templates(temp);
 };
 
 export default Qualities;

@@ -7,8 +7,8 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			color: "#299dfb",
-			temp: "1",
+			color: "red",
+			temp: "2",
 		};
 	}
 
@@ -47,7 +47,7 @@ class App extends React.Component {
 				case "1":
 					return (
 						<Template1
-							color="#299dfb"
+							color={this.state.color}
 							temp="1"
 						/>
 					);
@@ -55,7 +55,7 @@ class App extends React.Component {
 					return (
 						<Template2
 							color={this.state.color}
-							temp={this.state.temp}
+							temp="2"
 						/>
 					);
 				default:

@@ -32,76 +32,83 @@ const PersonalDetails = ({ color, temp }) => {
 			},
 		},
 	};
-	const templates = {
-		1: (
-			<div
-				className="personal-details-container"
-				style={styles[temp]["personal-details-container"]}>
-				<p
-					className="title"
-					style={styles[temp]["title"]}>
-					Personal Details
-				</p>
-				<div
-					className="personal-details"
-					style={styles[temp]["personal-details"]}>
+	const templates = (temp) => {
+		switch (temp) {
+			case "1":
+				return (
 					<div
-						className="dob-details"
-						style={styles[temp]["dob-details"]}>
+						className="personal-details-container"
+						style={styles[temp]["personal-details-container"]}>
 						<p
-							className="dob-title"
-							style={styles[temp]["dob-title"]}>
-							Date of Birth
+							className="title"
+							style={styles[temp]["title"]}>
+							Personal Details
 						</p>
-						<p
-							className="dob"
-							style={styles[temp]["dob"]}>
-							May 14th, 2000
-						</p>
+						<div
+							className="personal-details"
+							style={styles[temp]["personal-details"]}>
+							<div
+								className="dob-details"
+								style={styles[temp]["dob-details"]}>
+								<p
+									className="dob-title"
+									style={styles[temp]["dob-title"]}>
+									Date of Birth
+								</p>
+								<p
+									className="dob"
+									style={styles[temp]["dob"]}>
+									May 14th, 2000
+								</p>
+							</div>
+							<div
+								className="gender-details"
+								style={styles[temp]["gender-details"]}>
+								<p
+									className="gender-title"
+									style={styles[temp]["gender-title"]}>
+									Gender
+								</p>
+								<p
+									className="gender"
+									style={styles[temp]["gender"]}>
+									Male
+								</p>
+							</div>
+							<div
+								className="nationality-details"
+								style={styles[temp]["nationality-details"]}>
+								<p
+									className="nationality-title"
+									style={styles[temp]["nationality-title"]}>
+									Nationality
+								</p>
+								<p
+									className="nationality"
+									style={styles[temp]["nationality"]}>
+									Indian
+								</p>
+							</div>
+							<SocialMedia
+								temp={temp}
+								socialMediaList={[
+									{
+										name: "Linkden",
+										url: "https://www.linkedin.com/in/poornesh-shiva-9529a0215/",
+									},
+								]}
+							/>
+						</div>
 					</div>
-					<div
-						className="gender-details"
-						style={styles[temp]["gender-details"]}>
-						<p
-							className="gender-title"
-							style={styles[temp]["gender-title"]}>
-							Gender
-						</p>
-						<p
-							className="gender"
-							style={styles[temp]["gender"]}>
-							Male
-						</p>
-					</div>
-					<div
-						className="nationality-details"
-						style={styles[temp]["nationality-details"]}>
-						<p
-							className="nationality-title"
-							style={styles[temp]["nationality-title"]}>
-							Nationality
-						</p>
-						<p
-							className="nationality"
-							style={styles[temp]["nationality"]}>
-							Indian
-						</p>
-					</div>
-					<SocialMedia
-						temp={temp}
-						socialMediaList={[
-							{
-								name: "Linkden",
-								url: "https://www.linkedin.com/in/poornesh-shiva-9529a0215/",
-							},
-						]}
-					/>
-				</div>
-			</div>
-		),
+				);
+			case "2":
+				return <div>Personal Details Case 2</div>;
+			default:
+				return <div> Deafult</div>;
+		}
 	};
 
-	return templates[temp];
+	return templates(temp);
 };
 
 export default PersonalDetails;
