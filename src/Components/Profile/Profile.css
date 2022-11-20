@@ -1,0 +1,17 @@
+.profile-container {
+	max-width: 300px;
+	margin: 15px 0 0 20px;
+	/* border-bottom: 1px solid grey; */
+
+	/* position: absolute; */
+}
+
+.title {
+	/* margin-top: 10px; */
+	display: inline;
+	font-size: 20px;
+}
+.profile-body {
+	font-size: 12px;
+	margin-bottom: 20px;
+}
