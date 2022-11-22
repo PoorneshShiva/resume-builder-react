@@ -29,43 +29,53 @@ const Skills = ({ color, temp }) => {
 			},
 		},
 	};
-	const templates = {
-		1: (
-			<div
-				className="skills-container"
-				style={styles[temp]["skills-container"]}>
-				<p
-					className="title"
-					style={styles[temp]["title"]}>
-					Skills
-				</p>
-				<div
-					className="skills"
-					style={styles[temp]["skills"]}>
-					{skillsList.map((skill, index) => {
-						return (
-							<div
-								className="skill"
-								style={styles[temp]["skill"]}>
-								<p
-									className="skill-name"
-									style={styles[temp]["skill-name"]}>
-									{skill.name}
-								</p>
-								<BarLine
-									key={index}
-									color={color}
-									level={skill.level}
-								/>
-							</div>
-						);
-					})}
-				</div>
-			</div>
-		),
+	const templates = (temp) =>{
+		switch(temp){
+			case "1":
+				return (
+					<div
+						className="skills-container"
+						style={styles[temp]["skills-container"]}>
+						<p
+							className="title"
+							style={styles[temp]["title"]}>
+							Skills
+						</p>
+						<div
+							className="skills"
+							style={styles[temp]["skills"]}>
+							{skillsList.map((skill, index) => {
+								return (
+									<div
+										className="skill"
+										style={styles[temp]["skill"]}>
+										<p
+											className="skill-name"
+											style={styles[temp]["skill-name"]}>
+											{skill.name}
+										</p>
+										<BarLine
+											key={index}
+											color={color}
+											level={skill.level}
+										/>
+									</div>
+								);
+							})}
+						</div>
+					</div>
+				)
+				case "2":
+					return <h1>
+					Case 2 skills
+					</h1>
+				default:
+					return <h1> Skills Default</h1>
+		}
+		
 	};
 
-	return templates[temp];
+	return templates(temp);
 };
 
 export default Skills;

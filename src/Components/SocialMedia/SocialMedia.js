@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { BsTypeH1 } from "react-icons/bs";
 import "./SocialMedia.css";
 const SocialMedia = ({ color, temp }) => {
 	// const socialMediaList = props.socialMediaList;
@@ -30,30 +31,38 @@ const SocialMedia = ({ color, temp }) => {
 			},
 		},
 	};
-	const templates = {
-		1: (
-			<div
-				className="social-media-container"
-				style={styles[temp]["social-media-container"]}>
-				<div
-					className="social-media-details"
-					style={styles[temp]["social-media-details"]}>
-					<p
-						className="social-media-title"
-						style={styles[temp]["social-media-title"]}>
-						Linkden
-					</p>
-					<a
-						href=""
-						className="social-media"
-						style={styles[temp]["social-media"]}>
-						Poornesh Shiva
-					</a>
-				</div>
-			</div>
-		),
+	const templates = (temp) => {
+		switch (temp){
+			case "1":
+				return (
+					<div
+						className="social-media-container"
+						style={styles[temp]["social-media-container"]}>
+						<div
+							className="social-media-details"
+							style={styles[temp]["social-media-details"]}>
+							<p
+								className="social-media-title"
+								style={styles[temp]["social-media-title"]}>
+								Linkden
+							</p>
+							<a
+								href=""
+								className="social-media"
+								style={styles[temp]["social-media"]}>
+								Poornesh Shiva
+							</a>
+						</div>
+					</div>
+				)
+			case "2":
+				return <h1> Case 2 Social Media</h1>
+			default:
+				return <h1> Default Social Media </h1>
+		}
+		
 	};
-	return templates[temp];
+	return templates(temp);
 };
 
 export default SocialMedia;

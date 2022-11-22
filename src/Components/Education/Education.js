@@ -116,7 +116,7 @@ const Education = ({ color, temp }) => {
 					</div>
 				);
 			case "2":
-				return <div> Hello</div>;
+				return <div> Case 2 Education</div>;
 			default:
 				return <div>Default</div>;
 		}

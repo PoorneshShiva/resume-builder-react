@@ -5,34 +5,22 @@ import References from "../References/References";
 import Achievements from "../Achievements/Achievements";
 import Qualities from "../Qualities/Qualities";
 import PersonalDetails from "../PersonalDetails/PersonalDetails";
+import Profile from "../Profile/Profile";
+import Certificates from "../Certificates/Certificates";
+import Course from "../Course/Course";
+import Skills from "../Skills/Skills"
 
 const Template2 = ({ color = "rgb(49, 48, 48)", temp }) => {
 	return (
 		<div>
 			<Header
 				color={color}
-				temp="2"
+				profession="Business Development Manager"
+				temp={temp}
+				name="John Doe"
+				profileBody = "dspafdoj sdfjasodjf sodfjosdf o ojfosdfja fjo sdfoaojdf sj ojasfdo  jofsadjjjfoasj jojfsodjsf jasdghsdjfds fjspdjfpsd gjjpsadjf pah jjsfpsdf hgpasjd fppjfpasd fjspdfjs phgsdjfps dfjp"
 			/>
-			<Education
-				color={color}
-				temp="2"
-			/>
-			<References
-				color={color}
-				temp="2"
-			/>
-			<Achievements
-				color={color}
-				temp="2"
-			/>
-			<Qualities
-				color={color}
-				temp="2"
-			/>
-			<PersonalDetails
-				color={color}
-				temp="2"
-			/>
+			{/* e temp={temp} /> */}
 		</div>
 	);
 };

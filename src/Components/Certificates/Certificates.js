@@ -35,44 +35,52 @@ const Certificates = ({ color, temp }) => {
 			},
 		},
 	};
-	const templates = {
-		1: (
-			<div
-				className="course-container"
-				style={styles[temp]["course-container"]}>
-				<p
-					className="title"
-					style={styles[temp]["title"]}>
-					Certificates
-				</p>
-				<div
-					className="courses"
-					style={styles[temp]["courses"]}>
-					{certificatesList.map((each) => {
-						return (
-							<div
-								className="course"
-								style={styles[temp]["course"]}>
-								{" "}
-								<p
-									className="course-name"
-									style={styles[temp]["course-name"]}>
-									{each.name}
-								</p>
-								<p
-									className="date"
-									style={styles[temp]["date"]}>
-									{each.date}
-								</p>
-							</div>
-						);
-					})}
-				</div>
-			</div>
-		),
+	const templates = (temp) => {
+		switch (temp){
+			case "1":
+				return  (
+					<div
+						className="course-container"
+						style={styles[temp]["course-container"]}>
+						<p
+							className="title"
+							style={styles[temp]["title"]}>
+							Certificates
+						</p>
+						<div
+							className="courses"
+							style={styles[temp]["courses"]}>
+							{certificatesList.map((each) => {
+								return (
+									<div
+										className="course"
+										style={styles[temp]["course"]}>
+										{" "}
+										<p
+											className="course-name"
+											style={styles[temp]["course-name"]}>
+											{each.name}
+										</p>
+										<p
+											className="date"
+											style={styles[temp]["date"]}>
+											{each.date}
+										</p>
+									</div>
+								);
+							})}
+						</div>
+					</div>
+				)
+			case "2":
+				return <div>Case 2 Certificates</div>
+			default:
+				return <div> Default </div>
+		}
+	
 	};
 
-	return templates[temp];
+	return templates(temp);
 };
 
 export default Certificates;

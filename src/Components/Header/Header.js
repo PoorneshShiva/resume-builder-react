@@ -3,7 +3,8 @@
 import React from "react";
 import "./Header.css";
 import { MdCall, MdEmail, MdLocationPin } from "react-icons/md";
-const Header = ({ color = "#299dfb", temp }) => {
+import Profile from "../Profile/Profile";
+const Header = ({ color = "#299dfb", temp,name ,profession,profileBody, email,number,location}) => {
 	const headerDetails = {
 		name: "Poornesh Shiva",
 		designation: "FreeLance Software Developer",
@@ -124,7 +125,26 @@ const Header = ({ color = "#299dfb", temp }) => {
 					</div>
 				);
 			case "2":
-				return <h1>Hello</h1>;
+				return <div className="header-container" style={{backgroundColor: "#7a7676", padding:"0px 20px "}}>
+						<h2  className="name" style={{color:"White",margin:0,paddingTop:"10px"}}>{name}</h2> 
+
+						<p className="proffession" style={{color:"red",margin:"0px"}}>{profession}</p>
+						<div className="profile-body">
+								{profileBody}
+								
+						</div>
+						<div className="personal-information-container" style={{background:"black"}}>
+						
+							<div className="email">
+								email@gmail.com
+							</div>
+							<div className="phone-number"></div>
+							<div className="location"></div>
+							<div className="linkden"></div>
+							<div className="skype"></div>
+
+						</div>
+				</div>;
 			default:
 				return <h1> Default</h1>;
 		}

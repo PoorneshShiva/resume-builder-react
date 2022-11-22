@@ -35,9 +35,10 @@ const Course = ({ color, temp }) => {
 			},
 		},
 	};
-	const templates = {
-		1: (
-			<div
+	const templates = (temp) => {
+		switch (temp){
+			case "1":
+				return (<div
 				className="course-container"
 				style={styles[temp]["course-container"]}>
 				<p
@@ -68,11 +69,16 @@ const Course = ({ color, temp }) => {
 						);
 					})}
 				</div>
-			</div>
-		),
+			</div>)
+			case "2":
+				return <div>Case 2 Course</div>
+			default:
+				return <div>Default</div>
+		}
+		
 	};
 
-	return templates[temp];
+	return templates(temp);
 };
 
 export default Course;
